@@ -6,8 +6,10 @@ import com.sena.autoqa.service.interfaces.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
+
 
 
 @Service
@@ -29,21 +31,35 @@ public class UsuarioService implements CrudService<Usuario, Integer> {
 
     @Override
     public List<Usuario> findAll() {
-        return usuarioRepository.findAll();
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios.isEmpty() ? Collections.emptyList() : usuarios;
     }
 
     @Override
     public Usuario findById(Integer id) {
-        return usuarioRepository.findById(id).orElse(null);
+        return usuarioRepository.findById(id)
+                .orElseThrow(()-> new NoSuchElementException("No se encontró el usuario"));
     }
 
     @Override
     public Usuario update(Integer id, Usuario entity) {
-        if (!usuarioRepository.existsById(id)) {
-            throw new NoSuchElementException("Usuario no encontrado");
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(()-> new NoSuchElementException("No se encontró el usuario"));
+
+        if (entity.getNombre()!=null){
+            usuario.setNombre(entity.getNombre());
         }
-        entity.setId(id);
-        return usuarioRepository.save(entity);
+        if (entity.getContrasenia()!=null){
+            usuario.setContrasenia(entity.getContrasenia());
+        }
+        if (entity.getCorreo()!=null){
+            usuario.setCorreo(entity.getCorreo());
+        }
+        if (entity.getTokenJira()!=null){
+            usuario.setTokenJira(entity.getTokenJira());
+        }
+        usuarioRepository.save(usuario);
+        return usuario;
     }
 
     @Override

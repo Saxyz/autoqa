@@ -21,9 +21,9 @@ public class AutoqaApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		Usuario usuario1 = new Usuario(null, "Juancho polo", "sech@gmail.com",
-				"1309tilin", "1111");
-		usuarioService.save(usuario1);
+		Usuario usuario1 = new Usuario(null, "pepa pig polo", "pepewow@gmail.com",
+				"1309tilin", "11");
+		usuarioService.update(9, usuario1);
 
 		System.out.println("Usuario guardado");
 		System.out.println("Mostrar usuarios guardados");

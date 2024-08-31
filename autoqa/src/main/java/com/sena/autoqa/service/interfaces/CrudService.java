@@ -3,6 +3,7 @@ package com.sena.autoqa.service.interfaces;
 import com.sena.autoqa.model.Usuario;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudService<T, ID> {
     T save(T entity); //Funciona para guardar y actualizar, en el Controller se hace la desicion
