@@ -25,8 +25,8 @@ public class AutoqaApplication implements CommandLineRunner {
         // Usuario usuario1 = new Usuario(null, "Juancho Polo", "sech@gmail.com", "1309tilin", "1111");
         // usuarioService.save(usuario1);
 
-        System.out.println("Usuario guardado");
-        System.out.println("Mostrar usuarios guardados");
+        // System.out.println("Usuario guardado");
+        System.out.println("Proyecto corriendo");
         usuarioService.findAll().forEach(usuario -> System.out.println(usuario.toString()));
     }
 }
