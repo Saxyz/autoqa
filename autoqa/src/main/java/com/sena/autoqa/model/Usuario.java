@@ -39,7 +39,7 @@ public class Usuario {
     @NotBlank(message = "La contraseña es requerida")
     @Pattern(regexp = "^[a-zA-Z0-9@#\\$%&]+$", message = "La contraseña no debe contener ñ, tildes o caracteres especiales")
     @Column(name = "contraseña")
-    private String contrasenia;
+    private String contrasena;
 
     @Pattern(regexp = "^[a-zA-Z0-9@#\\$%&]*$", message = "El tokenJira no debe contener ñ, tildes o caracteres especiales")
     private String tokenJira;
@@ -57,11 +57,11 @@ public class Usuario {
         // Constructor vacío necesario para Hibernate
     }
 
-    public Usuario(Integer id, String nombre, String correo, String contrasenia, String tokenJira) {
+    public Usuario(Integer id, String nombre, String correo, String contrasena, String tokenJira) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
-        this.contrasenia = contrasenia;
+        this.contrasena = contrasena;
         this.tokenJira = tokenJira;
     }
 
@@ -90,12 +90,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getcontrasena() {
+        return contrasena;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setcontrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getTokenJira() {
@@ -120,7 +120,7 @@ public class Usuario {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
-                ", contrasenia='" + contrasenia + '\'' +
+                ", contrasena='" + contrasena + '\'' +
                 ", tokenJira='" + tokenJira + '\'' +
                 '}';
     }
