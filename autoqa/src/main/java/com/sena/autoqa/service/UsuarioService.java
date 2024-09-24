@@ -63,10 +63,13 @@ public class UsuarioService implements CrudService<Usuario, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public boolean deleteById(Integer id) {
+        boolean flag = false;
         if (!usuarioRepository.existsById(id)) {
             throw new NoSuchElementException("Usuario no encontrado");
         }
         usuarioRepository.deleteById(id);
+        flag = true;
+        return flag;
     }
 }

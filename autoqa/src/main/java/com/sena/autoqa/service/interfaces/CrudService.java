@@ -10,5 +10,5 @@ public interface CrudService<T, ID> {
     List<T> findAll();
     T findById(ID id);
     T update(ID id, T entity);
-    void deleteById(ID id);
+    boolean deleteById(ID id);
 }

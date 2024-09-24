@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "Usuarios")
 public class Usuario {
     //Atributos
     @Id
@@ -21,7 +21,7 @@ public class Usuario {
     private String tokenJira;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "participacionesporproyecto",   // Nombre de la tabla intermedia
+            name = "ParticipacionesPorProyecto",   // Nombre de la tabla intermedia
             joinColumns = @JoinColumn(name = "idUsuario"),   // Columna de clave externa a la tabla Usuarios
             inverseJoinColumns = @JoinColumn(name = "idProyecto")
     ) //Relacion con proyectos
