@@ -47,10 +47,11 @@ public class ProyectoService implements CrudService<Proyecto, Integer> {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public boolean deleteById(Integer id) {
         if (!proyectoRepository.existsById(id)) {
             throw new NoSuchElementException("Usuario no encontrado");
         }
         proyectoRepository.deleteById(id);
+        return true;
     }
 }
